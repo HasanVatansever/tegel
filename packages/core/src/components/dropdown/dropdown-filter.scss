@@ -1,0 +1,146 @@
+@import '../../mixins/z-index';
+
+:host {
+  .filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    background-color: var(--tds-dropdown-bg);
+    border-bottom: 1px solid var(--tds-dropdown-border-bottom);
+    padding-left: 16px;
+    border-radius: 4px 4px 0 0;
+
+    &:hover {
+      border-bottom: 1px solid var(--tds-dropdown-border-bottom-hover);
+    }
+
+    &.disabled {
+      color: var(--tds-dropdown-disabled-color);
+      border-bottom: 1px solid transparent;
+    }
+
+    .value-wrapper {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+
+    .label-inside-as-placeholder {
+      position: absolute;
+
+      &.lg {
+        top: 20px;
+      }
+
+      &.md {
+        top: 16px;
+      }
+
+      &.sm {
+        display: none;
+      }
+
+      font: var(--tds-detail-02);
+      letter-spacing: var(--tds-detail-02-ls);
+
+      /* Overwrite in order to display ÅÄÖ and similar sign correctly */
+      line-height: 1.3;
+      color: var(--tds-dropdown-placeholder-color);
+
+      &.selected {
+        font: var(--tds-detail-07);
+        letter-spacing: var(--tds-detail-07-ls);
+        transition: all 0.2s ease-in-out;
+
+        &.lg {
+          top: 12px;
+        }
+
+        &.md {
+          top: 8px;
+        }
+
+        &.sm {
+          display: none;
+        }
+
+        & + .placeholder:not(.sm) {
+          margin-top: 8px;
+        }
+      }
+    }
+
+    &.focus {
+      border-bottom-color: transparent;
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--tds-dropdown-border-bottom-open);
+      }
+    }
+
+    &.error {
+      border-bottom: 1px solid var(--tds-negative);
+
+      &.focus {
+        border-bottom-color: transparent;
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: var(--tds-negative);
+        }
+      }
+    }
+
+    input {
+      flex: 1;
+      all: unset;
+      width: 100%;
+
+      &::placeholder {
+        color: var(--tds-dropdown-placeholder-color);
+      }
+
+      &:disabled {
+        &::placeholder {
+          color: var(--tds-dropdown-disabled-color);
+        }
+      }
+    }
+
+    tds-icon {
+      cursor: pointer;
+    }
+
+    .menu-icon {
+      margin-right: 16px;
+    }
+
+    .clear-icon {
+      margin: 0 8px;
+      color: var(--tds-dropdown-clear-icon-color);
+      padding-right: 8px;
+      border-right: 1px solid var(--tds-dropdown-clear-icon-color);
+
+      &:hover {
+        color: var(--tds-dropdown-clear-icon-hover-color);
+      }
+
+      &.hide {
+        display: none;
+        visibility: hidden;
+      }
+    }
+  }
+}

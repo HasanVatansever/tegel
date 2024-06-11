@@ -1,0 +1,107 @@
+@import '../../../../mixins/focus-state';
+@import '../../../../mixins/box-sizing';
+
+:host {
+  @include tds-box-sizing;
+
+  display: block;
+
+  ::slotted(*) {
+    all: unset;
+
+    /* !important is needed here to prevent this from being overwritten by our CSS-reset. */
+    font: var(--tds-headline-07) !important;
+    letter-spacing: var(--tds-headline-07-ls) !important;
+    color: var(--tds-navigation-tabs-tab-color) !important;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    transition: color 0.15s ease-in-out 0s;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    width: 100%;
+    padding: 26px 4px;
+  }
+
+  ::slotted(*:focus-visible)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 26px;
+    bottom: 26px;
+    outline: 2px solid var(--tds-blue-400);
+  }
+
+  .navigation-tab-item:not(.selected)::after {
+    width: 0%;
+    transition: width 0.15s ease-in-out 0s;
+  }
+
+  .navigation-tab-item {
+    position: relative;
+    margin-right: 32px;
+
+    &:hover {
+      cursor: pointer;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  .navigation-tab-item::after {
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    width: 0%;
+    margin-right: auto;
+    height: 2px;
+    background-color: var(--tds-navigation-tabs-tab-indicator-background-hover);
+    z-index: 1;
+  }
+
+  .selected {
+    ::slotted(*) {
+      color: var(--tds-navigation-tabs-tab-color-selected);
+    }
+
+    &::after {
+      width: 100%;
+      background-color: var(--tds-navigation-tabs-tab-indicator-background-active);
+    }
+  }
+
+  .disabled {
+    color: var(--tds-navigation-tabs-tab-color-disabled);
+
+    ::slotted(*) {
+      opacity: var(--tds-navigation-tabs-tab-color-opacity-disabled);
+    }
+
+    &::after {
+      content: none;
+    }
+
+    ::slotted(*:hover) {
+      cursor: not-allowed;
+    }
+
+    ::slotted(*:focus-visible) {
+      outline: none;
+    }
+  }
+}
+
+:host(.first) {
+  margin-left: 32px;
+}
+
+:host(.last) {
+  margin-right: 32px;
+}

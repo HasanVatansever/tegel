@@ -1,6 +1,14 @@
-dist/
-www/
-loader/
+packages/core/dist
+packages/core/www
+packages/core/loader
+packages/core/components
+
+packages/angular/dist
+packages/react/dist
+stencil-generated
+
+icons/dist
+
 
 *~
 *.sw[mnpcod]
@@ -44,3 +52,8 @@ src/themes.built/
 storybook-static/
 
 components.d.ts
+
+
+# Playwright
+playwright-report/
+test-results/

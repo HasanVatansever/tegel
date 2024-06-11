@@ -1,0 +1,53 @@
+@import '../../mixins/focus-state';
+@import '../../mixins/disabled-style';
+@import '../../mixins/box-sizing';
+
+:host {
+  display: block;
+  @include tds-box-sizing;
+
+  .tds-accordion-header-icon-start,
+  .tds-accordion-header-icon-end {
+    position: relative;
+  }
+}
+
+:host(:focus) {
+  @include tds-focus-state;
+
+  .tds-accordion-item {
+    .tds-accordion-header-icon-start,
+    .tds-accordion-header-icon-end {
+      background-color: var(--tds-accordion-background-focus);
+      outline: none;
+
+      &::after {
+        border-color: var(--tds-accordion-border-focus);
+      }
+    }
+  }
+
+  .disabled {
+    @include tds-disabled-style;
+  }
+}
+
+:host(:active) {
+  .tds-accordion-header-icon-start,
+  .tds-accordion-header-icon-end {
+    background-color: var(--tds-accordion-background-active);
+    outline: none;
+  }
+
+  .disabled {
+    @include tds-disabled-style;
+  }
+}
+
+:host(:last-child) {
+  border-bottom: 1px solid var(--tds-accordion-border);
+}
+
+:host(.hide-last-border:last-child) {
+  border-bottom: none;
+}

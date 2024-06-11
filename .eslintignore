@@ -7,8 +7,12 @@
 **/conf.js
 **/.www
 
-core/loader
-core/stencil.config.ts
+
+packages/core/components
+packages/core/loader
+packages/core/stencil.config.ts
+packages/angular
+packages/react
 
 **/www
 

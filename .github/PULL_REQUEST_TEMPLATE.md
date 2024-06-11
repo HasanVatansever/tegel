@@ -1,17 +1,24 @@
-**Describe pull-request**  
+## **Describe pull-request**  
 _Describe what the pull-request is about_
 
-**Solving issue**  
-_In case of GitHub issue add # plus the number of the issue (for example #123) OR if it is Azure then AB# and number of ticket_
-Fixes: [CDEP-](https://tegel.atlassian.net/browse/CDEP-)
+## **Issue Linking:**  
+_Choose one of the following options_
+- **Jira:** Add ticket number after `CDEP-`: [CDEP-](https://tegel.atlassian.net/browse/CDEP-)    
+- **GitHub:** Include issue link  
+- **No issue:** Describe the problem being solved.  
 
-**How to test**  
-_Add description how to test if possible_
+## **How to test**  
+_Provide detailed steps for testing, including any necessary setup._
 1. Go to...
 2. Check in...
 3. Run ...
 
-**Suggested test steps**
+## **Checklist before submission**
+- [ ] I have added unit tests for my changes (if applicable)
+- [ ] All existing tests pass
+- [ ] I have updated the documentation (if applicable)
+
+## **Suggested test steps**
 - [ ] Browser testing (Chrome, Safari, Firefox) 
 - [ ] Keyboard operability
 - [ ] Interactive elements have labels.
@@ -21,8 +28,8 @@ _Add description how to test if possible_
 - [ ] Input fields – values should be displayed properly 
 - [ ] Events
 
-**Screenshots**  
-_If applicable, add screenshots to help explain_
+## **Screenshots**  
+_Include before/after screenshots for UI changes._
 
-**Additional context**  
-_Add any other context about the pull-request here._
+## **Additional context**  
+_Add any other context or feedback requests about the pull-request here._
